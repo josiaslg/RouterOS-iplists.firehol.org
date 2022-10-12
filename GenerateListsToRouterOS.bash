@@ -42,6 +42,7 @@ file="$FOLDER_TEMP/$NETWORKS_TO_BLOCK_1"
 while read -r line; do
     [[ "$line" =~ ^#.*$ ]] && continue
     echo "/ip firewall filter add chain=input src-address=${line} action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_1
+    echo "/ip firewall filter add chain=output src-address=${line} action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_1
 done < "$FOLDER_TEMP/$NETWORKS_TO_BLOCK_1"
 
 # List 2 processing
@@ -49,6 +50,7 @@ file="$FOLDER_TEMP/$NETWORKS_TO_BLOCK_2"
 while read -r line; do
     [[ "$line" =~ ^#.*$ ]] && continue
     echo "/ip firewall filter add chain=input src-address=${line} action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_2
+    echo "/ip firewall filter add chain=output src-address=${line} action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_2
 done < "$FOLDER_TEMP/$NETWORKS_TO_BLOCK_2"
 
 # List 3 processing
@@ -56,6 +58,7 @@ file="$FOLDER_TEMP/$NETWORKS_TO_BLOCK_3"
 while read -r line; do
     [[ "$line" =~ ^#.*$ ]] && continue
     echo "/ip firewall filter add chain=input src-address=${line} action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_3
+    echo "/ip firewall filter add chain=output src-address=${line} action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_3
 done < "$FOLDER_TEMP/$NETWORKS_TO_BLOCK_3"
 
 # List 4 processing
@@ -63,6 +66,7 @@ file="$FOLDER_TEMP/$NETWORKS_TO_BLOCK_4"
 while read -r line; do
     [[ "$line" =~ ^#.*$ ]] && continue
     echo "/ip firewall filter add chain=input src-address=${line} action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_4
+    echo "/ip firewall filter add chain=output src-address=${line} action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_4
 done < "$FOLDER_TEMP/$NETWORKS_TO_BLOCK_4"
 
 # Removing original file
