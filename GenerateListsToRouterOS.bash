@@ -49,32 +49,32 @@ wget https://iplists.firehol.org/files/$NETWORKS_TO_BLOCK_4 -O $FOLDER_TEMP/$NET
 file="$FOLDER_TEMP/$NETWORKS_TO_BLOCK_1"
 while read -r line; do
     [[ "$line" =~ ^#.*$ ]] && continue
-    echo "/ip firewall filter add chain=input src-address=${line} in-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_1
-    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_1
+    echo "/ip firewall filter add chain=input src-address=${line} in-interface=$IF_INTERNET action=drop  comment "$NETWORKS_TO_BLOCK_1"" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_1
+    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=$IF_INTERNET action=drop comment "$NETWORKS_TO_BLOCK_1"" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_1
 done < "$FOLDER_TEMP/$NETWORKS_TO_BLOCK_1"
 
 # List 2 processing
 file="$FOLDER_TEMP/$NETWORKS_TO_BLOCK_2"
 while read -r line; do
     [[ "$line" =~ ^#.*$ ]] && continue
-    echo "/ip firewall filter add chain=input src-address=${line} in-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_2
-    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_2
+    echo "/ip firewall filter add chain=input src-address=${line} in-interface=$IF_INTERNET action=drop comment "$NETWORKS_TO_BLOCK_2"" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_2
+    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=$IF_INTERNET action=drop comment "$NETWORKS_TO_BLOCK_2"" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_2
 done < "$FOLDER_TEMP/$NETWORKS_TO_BLOCK_2"
 
 # List 3 processing
 file="$FOLDER_TEMP/$NETWORKS_TO_BLOCK_3"
 while read -r line; do
     [[ "$line" =~ ^#.*$ ]] && continue
-    echo "/ip firewall filter add chain=input src-address=${line} in-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_3
-    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_3
+    echo "/ip firewall filter add chain=input src-address=${line} in-interface=$IF_INTERNET action=drop comment "$NETWORKS_TO_BLOCK_3"" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_3
+    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=$IF_INTERNET action=drop comment "$NETWORKS_TO_BLOCK_3"" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_3
 done < "$FOLDER_TEMP/$NETWORKS_TO_BLOCK_3"
 
 # List 4 processing
 file="$FOLDER_TEMP/$NETWORKS_TO_BLOCK_4"
 while read -r line; do
     [[ "$line" =~ ^#.*$ ]] && continue
-    echo "/ip firewall filter add chain=input src-address=${line} in-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_4
-    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_4
+    echo "/ip firewall filter add chain=input src-address=${line} in-interface=$IF_INTERNET action=drop comment "$NETWORKS_TO_BLOCK_4"" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_4
+    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=$IF_INTERNET action=drop comment "$NETWORKS_TO_BLOCK_4"" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_4
 done < "$FOLDER_TEMP/$NETWORKS_TO_BLOCK_4"
 
 # Removing original file
