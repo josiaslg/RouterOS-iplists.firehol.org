@@ -15,6 +15,9 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin
 
 # Created by josiaslg@bsd.com.br / @josiaslg
 
+# Date
+DATE=$(date '+%Y-%m-%d %H:%M:%S')
+
 # Interface to Internet
 # Change to yours. This is who connect by pppoe. 
 # If you use static IP, DHCP or other, edit with the correct interface
@@ -85,5 +88,5 @@ rm $FOLDER_TEMP/$NETWORKS_TO_BLOCK_4
 
 cd /home/suporte/RouterOS-iplists.firehol.org
 mv /tmp/RouterOS_firehol_level* ./
-git commit -a
+git commit -a  -m 'Update lists on $DATE'
 git push
