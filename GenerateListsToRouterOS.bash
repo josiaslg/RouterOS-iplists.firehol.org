@@ -85,5 +85,6 @@ rm $FOLDER_TEMP/$NETWORKS_TO_BLOCK_4
 
 cd /home/suporte/RouterOS-iplists.firehol.org
 mv /tmp/RouterOS_firehol_level* ./
+git add -A
 git commit -a  -m 'Update lists'
 git push

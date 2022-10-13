@@ -1,0 +1,79 @@
+/system script
+ add name=IPListsFireholLevel1 policy=\
+ ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon source=":\
+ log warning \"starting IPLists Firehol Level 1 update\";\r\
+ \n\
+ \n\
+ \n:delay 20;\r\
+ \n\
+ \n\
+ \n:log warning \"downloading Level 1\";\r\
+ \n\
+ \n\
+ \n\
+ \n\
+ \n:local hostScriptUrl \"https://raw.githubusercontent.com/josiaslg/RouterOS-iplists.firehol.org/main/RouterOS_firehol_level1.netset\";\
+ \n\
+ \n\
+ \n\
+ \n\r\
+ \n:local scriptName \"IPListsFireholLevel1\";\
+ \n\
+ \n\
+ \n\
+ \n\r\
+ \ndo {\
+ \n\
+ \n /tool fetch mode=http url=\$hostScriptUrl dst-path=(\"./\".\$scriptName\
+ );\
+ \n\
+ \n\r\
+ \n:delay 20;\
+ \n\
+ \n\r\
+ \n:if ([:len [/file find name=\$scriptName]] > 0) do={\r\
+ \n\
+ \n\
+ \n :log warning \"Removing old IPListsFireholLevel1 list\";\
+ \n\
+ \n\r\
+ \n /ip firewall filter remove [/ip firewall filter find dynamic=no];\
+ \n\
+ \n\r\
+ \n :log warning \"importing new IPListsFireholLevel1 list\";\r\
+ \n\
+ \n\
+ \n /import file-name=\$scriptName;\r\
+ \n\
+ \n\
+ \n /file remove \$scriptName;\r\
+ \n\
+ \n\
+ \n :log warning \"IPListsFireholLevel1 list imported\";\r\
+ \n\
+ \n\
+ \n } else={\
+ \n\
+ \n \r\
+ \n:log warning \"IPListsFireholLevel1 list not downloaded, script stopped\";\r\
+ \n\
+ \n\
+ \n }\r\
+ \n\
+ \n\
+ \n} on-error={\
+ \n\
+ \n \r\
+ \n:log warning \"IPListsFireholLevel1 list download FAILED\";\
+ \n\
+ \n\r\
+ \n};"
+ /system scheduler
+ add interval=6h name=IPListsFireholLevel1 on-event=IPListsFireholLevel1 policy=\
+ ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon \
+ start-time=startup
+ add name=IPListsFireholLevel1_startup on-event=\
+ ":delay 30;\r\
+ \n/system script run IPListsFireholLevel1" policy=\
+ ftp,reboot,read,write,policy,test,password,sniff,sensitive,romon \
+ start-time=startup
