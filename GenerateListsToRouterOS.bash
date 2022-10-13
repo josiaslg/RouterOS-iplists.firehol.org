@@ -8,9 +8,17 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin
 # Consult the levels on firehol site.
 
 
+# Version: 12 octuber 2022v2
+# Include the internet interface to apply rules
 # Version: 12 octuber 2022v1
-# Created by josiaslg@bsd.com.br
+# Initial to generate rules
 
+# Created by josiaslg@bsd.com.br / @josiaslg
+
+# Interface to Internet
+# Change to yours. This is who connect by pppoe. 
+# If you use static IP, DHCP or other, edit with the correct interface
+IF_INTERNET=pppoe-out1
 
 # Folder Temp
 FOLDER_TEMP=/tmp
@@ -41,32 +49,32 @@ wget https://iplists.firehol.org/files/$NETWORKS_TO_BLOCK_4 -O $FOLDER_TEMP/$NET
 file="$FOLDER_TEMP/$NETWORKS_TO_BLOCK_1"
 while read -r line; do
     [[ "$line" =~ ^#.*$ ]] && continue
-    echo "/ip firewall filter add chain=input src-address=${line} in-interface=pppoe-out1 action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_1
-    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=pppoe-out1 action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_1
+    echo "/ip firewall filter add chain=input src-address=${line} in-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_1
+    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_1
 done < "$FOLDER_TEMP/$NETWORKS_TO_BLOCK_1"
 
 # List 2 processing
 file="$FOLDER_TEMP/$NETWORKS_TO_BLOCK_2"
 while read -r line; do
     [[ "$line" =~ ^#.*$ ]] && continue
-    echo "/ip firewall filter add chain=input src-address=${line} in-interface=pppoe-out1 action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_2
-    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=pppoe-out1 action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_2
+    echo "/ip firewall filter add chain=input src-address=${line} in-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_2
+    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_2
 done < "$FOLDER_TEMP/$NETWORKS_TO_BLOCK_2"
 
 # List 3 processing
 file="$FOLDER_TEMP/$NETWORKS_TO_BLOCK_3"
 while read -r line; do
     [[ "$line" =~ ^#.*$ ]] && continue
-    echo "/ip firewall filter add chain=input src-address=${line} in-interface=pppoe-out1 action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_3
-    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=pppoe-out1 action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_3
+    echo "/ip firewall filter add chain=input src-address=${line} in-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_3
+    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_3
 done < "$FOLDER_TEMP/$NETWORKS_TO_BLOCK_3"
 
 # List 4 processing
 file="$FOLDER_TEMP/$NETWORKS_TO_BLOCK_4"
 while read -r line; do
     [[ "$line" =~ ^#.*$ ]] && continue
-    echo "/ip firewall filter add chain=input src-address=${line} in-interface=pppoe-out1 action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_4
-    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=pppoe-out1 action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_4
+    echo "/ip firewall filter add chain=input src-address=${line} in-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_4
+    echo "/ip firewall filter add chain=output dst-address=${line} out-interface=$IF_INTERNET action=drop" >> $FOLDER_TEMP/$NETWORKS_TO_BLOCK_ROUTEROS_4
 done < "$FOLDER_TEMP/$NETWORKS_TO_BLOCK_4"
 
 # Removing original file
@@ -75,8 +83,7 @@ rm $FOLDER_TEMP/$NETWORKS_TO_BLOCK_2
 rm $FOLDER_TEMP/$NETWORKS_TO_BLOCK_3
 rm $FOLDER_TEMP/$NETWORKS_TO_BLOCK_4
 
-# Commit to git
 cd /home/suporte/RouterOS-iplists.firehol.org
 mv /tmp/RouterOS_firehol_level* ./
-git commit -a --allow-empty-message -m ''
+git commit -a
 git push

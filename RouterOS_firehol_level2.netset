@@ -250,6 +250,8 @@
 /ip firewall filter add chain=output dst-address=3.9.146.161 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=3.9.146.164 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=3.9.146.164 out-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=input src-address=3.10.22.79 in-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=output dst-address=3.10.22.79 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=3.10.56.232 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=3.10.56.232 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=3.10.141.126 in-interface=pppoe-out1 action=drop
@@ -3098,8 +3100,6 @@
 /ip firewall filter add chain=output dst-address=37.230.150.46 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=37.230.211.45 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=37.230.211.45 out-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=input src-address=37.252.13.203 in-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=output dst-address=37.252.13.203 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=37.252.91.179 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=37.252.91.179 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=37.252.254.33 in-interface=pppoe-out1 action=drop
@@ -5834,6 +5834,8 @@
 /ip firewall filter add chain=output dst-address=51.89.164.205 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=51.89.167.16 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=51.89.167.16 out-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=input src-address=51.89.199.101 in-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=output dst-address=51.89.199.101 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=51.89.252.27 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=51.89.252.27 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=51.91.35.137 in-interface=pppoe-out1 action=drop
@@ -7816,8 +7818,6 @@
 /ip firewall filter add chain=output dst-address=69.163.152.115 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=69.163.186.158 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=69.163.186.158 out-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=input src-address=69.163.196.200 in-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=output dst-address=69.163.196.200 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=69.163.216.100 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=69.163.216.100 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=69.163.216.112 in-interface=pppoe-out1 action=drop
@@ -8652,8 +8652,6 @@
 /ip firewall filter add chain=output dst-address=81.17.25.50 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=81.19.136.5 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=81.19.136.5 out-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=input src-address=81.19.136.15 in-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=output dst-address=81.19.136.15 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=81.19.136.20 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=81.19.136.20 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=81.26.247.48 in-interface=pppoe-out1 action=drop
@@ -8720,8 +8718,6 @@
 /ip firewall filter add chain=output dst-address=81.161.229.112 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=81.161.229.152 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=81.161.229.152 out-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=input src-address=81.161.229.169 in-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=output dst-address=81.161.229.169 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=81.161.229.181 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=81.161.229.181 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=81.164.70.26 in-interface=pppoe-out1 action=drop
@@ -9408,8 +9404,10 @@
 /ip firewall filter add chain=output dst-address=88.214.25.5 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=88.214.25.7 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=88.214.25.7 out-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=input src-address=88.214.25.8/30 in-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=output dst-address=88.214.25.8/30 out-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=input src-address=88.214.25.9 in-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=output dst-address=88.214.25.9 out-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=input src-address=88.214.25.10/31 in-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=output dst-address=88.214.25.10/31 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=88.249.28.174 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=88.249.28.174 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=88.251.239.70 in-interface=pppoe-out1 action=drop
@@ -10122,6 +10120,8 @@
 /ip firewall filter add chain=output dst-address=92.205.7.127 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=92.205.15.94 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=92.205.15.94 out-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=input src-address=92.205.59.185 in-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=output dst-address=92.205.59.185 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=92.205.110.171 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=92.205.110.171 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=92.220.162.17 in-interface=pppoe-out1 action=drop
@@ -14374,6 +14374,8 @@
 /ip firewall filter add chain=output dst-address=118.158.49.6 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=118.163.58.117 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=118.163.58.117 out-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=input src-address=118.163.207.67 in-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=output dst-address=118.163.207.67 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=118.166.42.54 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=118.166.42.54 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=118.172.154.177 in-interface=pppoe-out1 action=drop
@@ -18934,6 +18936,8 @@
 /ip firewall filter add chain=output dst-address=146.70.8.10 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=146.70.8.16 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=146.70.8.16 out-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=input src-address=146.70.59.139 in-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=output dst-address=146.70.59.139 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=146.70.61.131 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=146.70.61.131 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=146.70.61.139 in-interface=pppoe-out1 action=drop
@@ -19328,8 +19332,6 @@
 /ip firewall filter add chain=output dst-address=150.158.94.24 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=150.158.95.48 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=150.158.95.48 out-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=input src-address=150.158.95.181 in-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=output dst-address=150.158.95.181 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=150.158.98.11 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=150.158.98.11 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=150.158.98.58 in-interface=pppoe-out1 action=drop
@@ -20524,6 +20526,8 @@
 /ip firewall filter add chain=output dst-address=159.223.113.242 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=159.223.116.251 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=159.223.116.251 out-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=input src-address=159.223.119.187 in-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=output dst-address=159.223.119.187 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=159.223.120.180 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=159.223.120.180 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=159.223.138.201 in-interface=pppoe-out1 action=drop
@@ -21512,8 +21516,6 @@
 /ip firewall filter add chain=output dst-address=167.71.200.57 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=167.71.204.224 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=167.71.204.224 out-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=input src-address=167.71.213.91 in-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=output dst-address=167.71.213.91 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=167.71.216.37 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=167.71.216.37 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=167.71.219.49 in-interface=pppoe-out1 action=drop
@@ -22484,6 +22486,8 @@
 /ip firewall filter add chain=output dst-address=177.43.179.143 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=177.43.233.9 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=177.43.233.9 out-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=input src-address=177.43.251.153 in-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=output dst-address=177.43.251.153 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=177.45.82.152 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=177.45.82.152 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=177.52.27.44 in-interface=pppoe-out1 action=drop
@@ -23544,8 +23548,6 @@
 /ip firewall filter add chain=output dst-address=183.56.161.71 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=183.56.198.44 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=183.56.198.44 out-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=input src-address=183.56.202.127 in-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=output dst-address=183.56.202.127 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=183.56.206.145 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=183.56.206.145 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=183.56.232.174 in-interface=pppoe-out1 action=drop
@@ -24372,8 +24374,6 @@
 /ip firewall filter add chain=output dst-address=185.243.218.110 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=185.244.248.51 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=185.244.248.51 out-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=input src-address=185.245.84.20 in-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=output dst-address=185.245.84.20 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=185.245.84.52 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=185.245.84.52 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=185.246.188.67 in-interface=pppoe-out1 action=drop
@@ -25978,8 +25978,6 @@
 /ip firewall filter add chain=output dst-address=193.194.88.229 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=193.202.110.23 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=193.202.110.23 out-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=input src-address=193.228.108.122 in-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=output dst-address=193.228.108.122 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=193.234.224.212 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=193.234.224.212 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=193.239.164.108 in-interface=pppoe-out1 action=drop
@@ -26222,6 +26220,8 @@
 /ip firewall filter add chain=output dst-address=195.178.120.177 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=195.178.120.200 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=195.178.120.200 out-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=input src-address=195.178.120.231 in-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=output dst-address=195.178.120.231 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=195.178.120.243 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=195.178.120.243 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=195.201.8.5 in-interface=pppoe-out1 action=drop
@@ -27926,8 +27926,6 @@
 /ip firewall filter add chain=output dst-address=208.68.39.20 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=208.68.39.168 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=208.68.39.168 out-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=input src-address=208.80.194.121 in-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=output dst-address=208.80.194.121 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=208.83.185.187 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=208.83.185.187 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=208.83.188.104 in-interface=pppoe-out1 action=drop
@@ -28622,6 +28620,8 @@
 /ip firewall filter add chain=output dst-address=213.149.103.132 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=213.152.161.5 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=213.152.161.5 out-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=input src-address=213.152.161.10 in-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=output dst-address=213.152.161.10 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=213.152.161.15 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=213.152.161.15 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=213.152.161.20 in-interface=pppoe-out1 action=drop
@@ -28694,6 +28694,8 @@
 /ip firewall filter add chain=output dst-address=213.152.162.165 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=213.152.162.170 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=213.152.162.170 out-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=input src-address=213.152.162.181 in-interface=pppoe-out1 action=drop
+/ip firewall filter add chain=output dst-address=213.152.162.181 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=213.152.186.24 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=213.152.186.24 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=213.152.186.40 in-interface=pppoe-out1 action=drop
@@ -28712,8 +28714,6 @@
 /ip firewall filter add chain=output dst-address=213.152.187.210 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=213.152.187.215 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=213.152.187.215 out-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=input src-address=213.152.187.225 in-interface=pppoe-out1 action=drop
-/ip firewall filter add chain=output dst-address=213.152.187.225 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=213.152.187.235 in-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=output dst-address=213.152.187.235 out-interface=pppoe-out1 action=drop
 /ip firewall filter add chain=input src-address=213.154.2.42 in-interface=pppoe-out1 action=drop
