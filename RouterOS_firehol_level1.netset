@@ -544,6 +544,8 @@
 /ip firewall filter add chain=output dst-address=95.161.128.0/23 out-interface=pppoe-out1 action=drop comment firehol_level1.netset
 /ip firewall filter add chain=input src-address=95.214.24.0/24 in-interface=pppoe-out1 action=drop  comment firehol_level1.netset
 /ip firewall filter add chain=output dst-address=95.214.24.0/24 out-interface=pppoe-out1 action=drop comment firehol_level1.netset
+/ip firewall filter add chain=input src-address=98.126.31.0/24 in-interface=pppoe-out1 action=drop  comment firehol_level1.netset
+/ip firewall filter add chain=output dst-address=98.126.31.0/24 out-interface=pppoe-out1 action=drop comment firehol_level1.netset
 /ip firewall filter add chain=input src-address=100.64.0.0/10 in-interface=pppoe-out1 action=drop  comment firehol_level1.netset
 /ip firewall filter add chain=output dst-address=100.64.0.0/10 out-interface=pppoe-out1 action=drop comment firehol_level1.netset
 /ip firewall filter add chain=input src-address=101.1.16.0/20 in-interface=pppoe-out1 action=drop  comment firehol_level1.netset
